@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário - Alunos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+    <div class="brand">
+        <span class="brand-badge">FA</span>
+        <div>
+            <h1>Feliz Aniversário</h1>
+            <p>Gestão de alunos e mensagens</p>
+        </div>
+    </div>
+    <nav class="top-menu">
+        <button id="menu-alunos" class="menu-btn active">Alunos</button>
+        <button id="menu-mensagens" class="menu-btn">Mensagens</button>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="card" id="secao-alunos">
+        <div class="card-header">
+            <h2>Próximos aniversariantes</h2>
+            <div class="header-actions">
+                <button id="btn-recarregar" class="secondary-btn">Recarregar</button>
+                <button id="btn-novo-aluno" class="primary-btn">Novo aluno</button>
+            </div>
+        </div>
+
+        <p id="status" class="status"></p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Turma</th>
+                    <th>Nascimento</th>
+                    <th>Próximo aniversário</th>
+                    <th>Dias restantes</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody id="tbody-alunos"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="card hidden" id="secao-mensagens">
+        <div class="card-header">
+            <h2>Mensagens</h2>
+        </div>
+        <p id="status-mensagens" class="status"></p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th>Aluno</th>
+                    <th>Data de aniversário</th>
+                    <th>Data de envio</th>
+                    <th>Mensagem</th>
+                </tr>
+                </thead>
+                <tbody id="tbody-mensagens"></tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-title">Novo aluno</h3>
+            <button id="modal-close" class="icon-btn" aria-label="Fechar">×</button>
+        </div>
+        <form id="aluno-form">
+            <input type="hidden" id="aluno-id">
+
+            <label for="matricula">Matrícula</label>
+            <input id="matricula" type="number" required>
+
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" required>
+
+            <label for="email">E-mail</label>
+            <input id="email" type="email" required>
+
+            <label for="turma">Turma</label>
+            <input id="turma" type="text" required>
+
+            <label for="dataNascimento">Data de nascimento</label>
+            <input id="dataNascimento" type="date" required>
+
+            <div class="modal-actions">
+                <button type="button" id="btn-cancelar" class="secondary-btn">Cancelar</button>
+                <button type="submit" class="primary-btn">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="modal-mensagem" class="modal hidden" aria-hidden="true">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Mensagem enviada</h3>
+            <button id="modal-mensagem-close" class="icon-btn" aria-label="Fechar">×</button>
+        </div>
+        <p id="mensagem-texto" class="message-text"></p>
+        <div class="modal-actions">
+            <button type="button" id="btn-mensagem-fechar" class="primary-btn">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
